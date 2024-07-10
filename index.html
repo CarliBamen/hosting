@@ -1,73 +1,136 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" class="login-pf">
+
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta name="robots" content="noindex, nofollow">
-
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
   <title>Log in to VMD-SERAPIS-01</title>
-   <style>
-        /* Estilos básicos para el formulario */
-      .login-container {
-            background-color: white;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-         body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f4f4f4;
-        }
-        .login-container {
-            background-color: white;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .login-container h2 {
-            margin-bottom: 20px;
-        }
-        .login-container input {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        .login-container button {
-            width: 100%;
-            padding: 10px;
-            background-color: #5cb85c;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        .login-container button:hover {
-            background-color: #4cae4c;
-        }
-      </style>
+  
+  <style>
+    .message {
+      display: none;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+    .success {
+      background-color: #dff0d8;
+      color: #3c763d;
+    }
+    .error {
+      background-color: #f2dede;
+      color: #a94442;
+    }
+	    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    
+    .login-pf-page {
+      width: 400px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+    }
+    
+    .login-pf-page-header {
+      background-color: #337ab7;
+      color: #fff;
+      padding: 10px;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    .card-pf {
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.1);
+    }
+    
+    .login-pf-header {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    
+    #kc-form {
+      margin-bottom: 20px;
+    }
+    
+    .form-group {
+      margin-bottom: 15px;
+    }
+    
+    .btn-primary {
+      background-color: #337ab7;
+      color: #fff;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      border-radius: 3px;
+    }
+    
+    .btn-primary:hover {
+      background-color: #286090;
+    }
+  </style>
+  
+  <script>
+    function validateLogin(event) {
+      event.preventDefault();
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      const successMessage = document.getElementById('successMessage');
+      const errorMessage = document.getElementById('errorMessage');
+
+      successMessage.style.display = 'none';
+      errorMessage.style.display = 'none';
+
+      if (username === 'xxx' && password === 'yyy') {
+        successMessage.style.display = 'block';
+      } else {
+        errorMessage.style.display = 'block';
+      }
+    }
+  </script>
 </head>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Log in to VMD-SERAPIS-01</title>
+  
+  
+</head>
+
+
 <body>
- <div class="login-pf-page">
+  <div class="login-pf-page">
     <div id="kc-header" class="login-pf-page-header">
-      <div id="kc-header-wrapper" class="login-container">VMD-SERAPIS-01</div>
+      <div id="kc-header-wrapper" class="">VMD-SERAPIS-01-LOGIN</div>
     </div>
     <div class="card-pf ">
       <header class="login-pf-header">
-        <h1 id="kc-page-title"> Log In</h1>
+        <h1 id="kc-page-title">Log In</h1>
       </header>
       <div id="kc-content">
         <div id="kc-content-wrapper">
-          <div id="kc-form" >
-            <div id="kc-form-wrapper" >
-              <form id="kc-form-login" onsubmit="login.disabled = true; return true;" action="https://test.com " method="post">
+          <div id="kc-form">
+            <div id="kc-form-wrapper">
+              <form id="kc-form-login" onsubmit="validateLogin(event);" method="post">
                 <div class="form-group">
                   <label for="username" class="control-label">Username or email</label>
                   <input tabindex="1" id="username" class="form-control" name="username" value="" type="text" autofocus autocomplete="off" />
@@ -77,20 +140,25 @@
                   <input tabindex="2" id="password" class="form-control" name="password" type="password" autocomplete="off" />
                 </div>
                 <div class="form-group login-pf-settings">
-                  <div id="kc-form-options">
-                  </div>
-                  <div class="">
-                  </div>
+                  <div id="kc-form-options"></div>
+                  <div class=""></div>
                 </div>
                 <div id="kc-form-buttons" class="form-group">
                   <input type="hidden" id="id-hidden-input" name="credentialId" />
-                  <input tabindex="4" class="btn btn-primary btn-block btn-lg" name="login" id="kc-login" type="submit" value="Log In"/>
+                  <input tabindex="4" class="btn btn-primary btn-block btn-lg" name="login" id="kc-login" type="submit" value="Log In" />
                 </div>
               </form>
+              <div id="successMessage" style="display:none; color: green; margin-top: 10px;">
+                Login successful
+              </div>
+              <div id="errorMessage" style="display:none; color: red; margin-top: 10px;">
+                Invalid username or password
+              </div>
             </div>
           </div>
         </div>
-      </div>	
+      </div>  
     </div>
   </div>
 </body>
+</html>
