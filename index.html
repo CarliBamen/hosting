@@ -93,10 +93,12 @@
       formatErrorEmailMessage.style.display = 'none';
       formatErrorPasswordMessage.style.display = 'none';
 
-	if (username.trim() === '' && password.trim() === '') {
+	
+      // Validar formato de nombre de usuario y correo electrónico
+	    	if (username.trim() === '' && password.trim() === '') {
         errorMessage.style.display = 'block';
         return;
-      // Validar formato de nombre de usuario y correo electrónico
+	}
       const usernameRegex = /^[a-zA-Z0-9_]{3,16}$/;
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!usernameRegex.test(username) && !emailRegex.test(username)) {
