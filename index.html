@@ -1,57 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" class="login-pf">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login Page</title>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Log in to VMD-SERAPIS-01</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f5f5f5;
-      color: #333;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-    }
-    .login-page {
-      width: 400px;
-      background-color: #fff;
-      padding: 20px;
-      border-radius: 5px;
-      box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
-    }
-    .login-form {
-      text-align: center;
-    }
-    .form-group {
-      margin-bottom: 15px;
-    }
-    label {
-      display: block;
-      margin-bottom: 5px;
-    }
-    input {
-      width: 100%;
-      padding: 10px;
-      margin: 5px 0 10px 0;
-      display: inline-block;
-      border: 1px solid #ccc;
-      box-sizing: border-box;
-    }
-    button {
-      background-color: #337ab7;
-      color: white;
-      padding: 14px 20px;
-      margin: 8px 0;
-      border: none;
-      cursor: pointer;
-      width: 100%;
-    }
-    button:hover {
-      background-color: #286090;
-    }
     .message {
       display: none;
       padding: 10px;
@@ -66,45 +21,67 @@
     .error {
       background-color: #f2dede;
       color: #a94442;
+      display: none;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .login-pf-page {
+      width: 400px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+    }
+    .login-pf-page-header {
+      background-color: #337ab7;
+      color: #fff;
+      padding: 10px;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .card-pf {
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.1);
+    }
+    .login-pf-header {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    #kc-form {
+      margin-bottom: 20px;
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    .btn-primary {
+      background-color: #337ab7;
+      color: #fff;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      border-radius: 3px;
+    }
+    .btn-primary:hover {
+      background-color: #286090;
     }
   </style>
-</head>
-<body>
-  <div class="login-page">
-    <div class="login-form">
-      <h2>Login</h2>
-      <form id="loginForm" onsubmit="validateLogin(event);">
-        <div class="form-group">
-          <label for="username">Username or email</label>
-          <input type="text" id="username" name="username" required>
-        </div>
-        <div class="form-group">
-          <label for="password">Password</label>
-          <input type="password" id="password" name="password" required>
-        </div>
-        <div class="form-group">
-          <button type="submit">Log In</button>
-        </div>
-      </form>
-      <div id="formatErrorMessage" class="message error">
-        Invalid username or email format. Please enter a valid username or email.
-      </div>
-      <div id="successMessage" class="message success">
-        Login successful
-      </div>
-      <div id="errorMessage" class="message error">
-        Invalid username or password
-      </div>
-    </div>
-  </div>
-
+  
   <script>
     function validateLogin(event) {
       event.preventDefault();
-
       const username = document.getElementById('username').value;
       const password = document.getElementById('password').value;
-
       const successMessage = document.getElementById('successMessage');
       const errorMessage = document.getElementById('errorMessage');
       const formatErrorMessage = document.getElementById('formatErrorMessage');
@@ -116,22 +93,66 @@
       // Validar formato de nombre de usuario y correo electrónico
       const usernameRegex = /^[a-zA-Z0-9_]{3,16}$/;
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
+      
       if (!usernameRegex.test(username) && !emailRegex.test(username)) {
         formatErrorMessage.style.display = 'block';
         return;
       }
 
-      // Validar que la contraseña no esté vacía
-      if (password.trim() === '') {
-        formatErrorMessage.style.display = 'block';
-        formatErrorMessage.textContent = 'Password cannot be empty';
-        return;
+      // Validar credenciales
+      if (username === 'xxx' && password === 'yyy') {
+        successMessage.style.display = 'block';
+      } else {
+        errorMessage.style.display = 'block';
       }
-
-      // Si el formato del username/email es válido y la contraseña no está vacía, mostrar éxito
-      successMessage.style.display = 'block';
     }
   </script>
+</head>
+<body>
+  <div class="login-pf-page">
+    <div id="kc-header" class="login-pf-page-header">
+      <div id="kc-header-wrapper" class="">VMD-SERAPIS-01-LOGIN</div>
+    </div>
+    <div class="card-pf ">
+      <header class="login-pf-header">
+        <h1 id="kc-page-title">Log In</h1>
+      </header>
+      <div id="kc-content">
+        <div id="kc-content-wrapper">
+          <div id="kc-form">
+            <div id="kc-form-wrapper">
+              <form id="kc-form-login" onsubmit="validateLogin(event);" method="post">
+                <div class="form-group">
+                  <label for="username" class="control-label">Username or email</label>
+                  <input tabindex="1" id="username" class="form-control" name="username" value="" type="text" autofocus autocomplete="off" />
+                </div>
+                <div class="form-group">
+                  <label for="password" class="control-label">Password</label>
+                  <input tabindex="2" id="password" class="form-control" name="password" type="password" autocomplete="off" />
+                </div>
+                <div class="form-group login-pf-settings">
+                  <div id="kc-form-options"></div>
+                  <div class=""></div>
+                </div>
+                <div id="kc-form-buttons" class="form-group">
+                  <input type="hidden" id="id-hidden-input" name="credentialId" />
+                  <input tabindex="4" class="btn btn-primary btn-block btn-lg" name="login" id="kc-login" type="submit" value="Log In" />
+                </div>
+              </form>
+              <div id="formatErrorMessage" style="display:none; color: red; margin-top: 10px;">
+                Invalid email. Please enter a valid username or email.
+              </div>
+              <div id="successMessage" style="display:none; color: green; margin-top: 10px;">
+                Login successful
+              </div>
+              <div id="errorMessage" style="display:none; color: red; margin-top: 10px;">
+                Invalid username or password
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>  
+    </div>
+  </div>
 </body>
 </html>
