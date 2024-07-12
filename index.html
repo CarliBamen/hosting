@@ -93,18 +93,10 @@
       // Validar formato de nombre de usuario y correo electrónico
       const usernameRegex = /^[a-zA-Z0-9_]{3,16}$/;
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      
       if (!usernameRegex.test(username) && !emailRegex.test(username)) {
         formatErrorEmailMessage.style.display = 'block';
         return;
       }
-
-      // Validar credenciales
-    if (!usernameRegex.test(username) && !emailRegex.test(username)) {
-        formatErrorMessage.style.display = 'block';
-        return;
-      }
-
       // Validar que la contraseña no esté vacía
       if (password.trim() === '') {
         formatErrorMessage.style.display = 'block';
