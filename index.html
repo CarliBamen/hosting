@@ -104,7 +104,7 @@
         return;
       }
 	if (password === '')&&(username === '') {
-        	formatErrorMessage.style.display = 'block';
+        	errorMessage.style.display = 'block';
         return;
       }
 	    
@@ -144,10 +144,7 @@
                   <input tabindex="4" class="btn btn-primary btn-block btn-lg" name="login" id="kc-login" type="submit" value="Log In" />
                 </div>
               </form>
-              <div id="formatErrorMessage" style="display:none; color: red; margin-top: 10px;">
-                Invalid email and Password.
-              </div>
-		<div id="formatErrorEmailMessage" class="message error">
+               <div id="formatErrorEmailMessage" class="message error">
        		 Invalid username or email format. Please enter a valid username or email.
      		</div>
 		<div id="formatErrorPasswordMessage" class="message error">
@@ -157,7 +154,7 @@
                 Login successful
               </div>
               <div id="errorMessage" style="display:none; color: red; margin-top: 10px;">
-                Invalid username or password
+                Invalid username or password.
               </div>
             </div>
           </div>
