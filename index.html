@@ -100,11 +100,19 @@
       }
 
       // Validar credenciales
-      if (username === 'xxx' && password === 'yyy') {
-        successMessage.style.display = 'block';
-      } else {
-        errorMessage.style.display = 'block';
+    if (!usernameRegex.test(username) && !emailRegex.test(username)) {
+        formatErrorMessage.style.display = 'block';
+        return;
       }
+
+      // Validar que la contraseña no esté vacía
+      if (password.trim() === '') {
+        formatErrorMessage.style.display = 'block';
+        formatErrorMessage.textContent = 'Password cannot be empty';
+        return;
+      }
+	        // Si el formato del username/email es válido y la contraseña no está vacía, mostrar éxito
+      successMessage.style.display = 'block';
     }
   </script>
 </head>
