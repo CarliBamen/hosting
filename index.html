@@ -99,8 +99,8 @@
       }
       // Validar que la contraseña no esté vacía
       if (password.trim() === '') {
-        formatErrorMessage.style.display = 'block';
-        formatErrorMessage.textContent = 'Password cannot be empty';
+        formatErrorPasswordMessage.style.display = 'block';
+        //formatErrorMessage.textContent = 'Password cannot be empty';
         return;
       }
 	        // Si el formato del username/email es válido y la contraseña no está vacía, mostrar éxito
@@ -144,6 +144,9 @@
               </div>
 		<div id="formatErrorEmailMessage" class="message error">
        		 Invalid username or email format. Please enter a valid username or email.
+     		</div>
+		<div id="formatErrorPasswordMessage" class="message error">
+       		 Password cannot be empty.
      		</div>
               <div id="successMessage" style="display:none; color: green; margin-top: 10px;">
                 Login successful
