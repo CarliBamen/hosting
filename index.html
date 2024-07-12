@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" class="login-pf">
 <head>
   <meta charset="utf-8">
@@ -87,34 +87,46 @@
       const formatErrorEmailMessage = document.getElementById('formatErrorEmailMessage');
       const formatErrorPasswordMessage = document.getElementById('formatErrorPasswordMessage');
 
-
       successMessage.style.display = 'none';
       errorMessage.style.display = 'none';
       formatErrorEmailMessage.style.display = 'none';
       formatErrorPasswordMessage.style.display = 'none';
 
-	
-      // Validar formato de nombre de usuario y correo electrónico
-	    	if (username.trim() === '' && password.trim() === '') {
+      // Validar que los campos no estén vacíos
+      if (username.trim() === '' || password.trim() === '') {
         errorMessage.style.display = 'block';
         return;
-	}
+      }
+
       const usernameRegex = /^[a-zA-Z0-9_]{3,16}$/;
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      // Validar formato de nombre de usuario o correo electrónico
       if (!usernameRegex.test(username) && !emailRegex.test(username)) {
         formatErrorEmailMessage.style.display = 'block';
         return;
       }
+
       // Validar que la contraseña no esté vacía
       if (password === '') {
         formatErrorPasswordMessage.style.display = 'block';
-        //formatErrorMessage.textContent = 'Password cannot be empty';
         return;
       }
-    // Si el formato del username/email es válido y la contraseña no está vacía, mostrar éxito
-       successMessage.style.display = 'block';
+
+      // Simulación de verificación de credenciales (reemplazar con la lógica real del servidor)
+      const isValidLogin = true; // Aquí debes implementar la lógica real de verificación de credenciales
+
+      if (isValidLogin) {
+        // Mostrar mensaje de éxito y redirigir a Google después de 2 segundos
+        successMessage.style.display = 'block';
+        setTimeout(function() {
+          window.location.href = 'https://www.google.com';
+        }, 2000); // Redirigir después de 2 segundos (2000 milisegundos)
+      } else {
+        // Mostrar mensaje de error de credenciales
+        errorMessage.style.display = 'block';
+      }
     }
-   
   </script>
 </head>
 <body>
@@ -148,14 +160,14 @@
                   <input tabindex="4" class="btn btn-primary btn-block btn-lg" name="login" id="kc-login" type="submit" value="Log In" />
                 </div>
               </form>
-               <div id="formatErrorEmailMessage" class="message error">
-       		 Invalid username or email format. Please enter a valid username or email.
-     		</div>
-		<div id="formatErrorPasswordMessage" class="message error">
-       		 Password cannot be empty.
-     		</div>
+              <div id="formatErrorEmailMessage" class="message error">
+                Invalid username or email format. Please enter a valid username or email.
+              </div>
+              <div id="formatErrorPasswordMessage" class="message error">
+                Password cannot be empty.
+              </div>
               <div id="successMessage" style="display:none; color: green; margin-top: 10px;">
-                Login successful
+                Login successful.
               </div>
               <div id="errorMessage" style="display:none; color: red; margin-top: 10px;">
                 Invalid username or password.
