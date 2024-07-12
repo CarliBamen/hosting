@@ -84,11 +84,15 @@
       const password = document.getElementById('password').value;
       const successMessage = document.getElementById('successMessage');
       const errorMessage = document.getElementById('errorMessage');
-      const formatErrorMessage = document.getElementById('formatErrorMessage');
+      const formatErrorEmailMessage = document.getElementById('formatErrorEmailMessage');
+      const formatErrorPasswordMessage = document.getElementById('formatErrorPasswordMessage');
+
 
       successMessage.style.display = 'none';
       errorMessage.style.display = 'none';
-      formatErrorMessage.style.display = 'none';
+      formatErrorEmailMessage.style.display = 'none';
+      formatErrorPasswordMessage.style.display = 'none';
+
 
       // Validar formato de nombre de usuario y correo electrónico
       const usernameRegex = /^[a-zA-Z0-9_]{3,16}$/;
