@@ -107,15 +107,14 @@
         //formatErrorMessage.textContent = 'Password cannot be empty';
         return;
       }
-	if 
-	    (username === ''  && password === '') {
+
+    // Si el formato del username/email es válido y la contraseña no está vacía, mostrar éxito
+      successMessage.style.display = 'block';
+    }
+    if (!username || !password) {
         	errorMessage.style.display = 'block';
         return;
       }
-	    
-	        // Si el formato del username/email es válido y la contraseña no está vacía, mostrar éxito
-      successMessage.style.display = 'block';
-    }
   </script>
 </head>
 <body>
